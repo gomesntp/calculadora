@@ -21,13 +21,11 @@
       --text-muted: #9ab0c4;
       --text-dim: #6a849c;
       --cream: #f5f0e6;
+      --success: #3dd68c;
+      --danger: #e07a5f;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -41,7 +39,6 @@
         radial-gradient(ellipse 50% 30% at 85% 90%, rgba(126, 184, 212, 0.06) 0%, transparent 50%);
     }
 
-    /* ========== HEADER ========== */
     header {
       display: flex;
       align-items: center;
@@ -55,292 +52,303 @@
       z-index: 100;
     }
 
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
+    .logo-area { display: flex; align-items: center; gap: 18px; }
     .logo-area img {
-      height: 62px;
-      width: auto;
+      height: 62px; width: auto;
       filter: drop-shadow(0 2px 10px rgba(232, 185, 35, 0.2));
       transition: transform 0.25s ease;
     }
-
-    .logo-area img:hover {
-      transform: scale(1.04);
-    }
-
-    .logo-text h1 {
-      font-size: 1.4rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--text);
-    }
-
-    .logo-text h1 span {
-      color: var(--gold);
-    }
-
-    .logo-text p {
-      color: var(--text-muted);
-      font-size: 0.8rem;
-      margin-top: 2px;
-      font-weight: 400;
-      letter-spacing: 0.02em;
-    }
+    .logo-area img:hover { transform: scale(1.04); }
+    .logo-text h1 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text); }
+    .logo-text h1 span { color: var(--gold); }
+    .logo-text p { color: var(--text-muted); font-size: 0.8rem; margin-top: 2px; }
 
     .input-area {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 50px;
-      padding: 8px 8px 8px 20px;
+      display: flex; align-items: center; gap: 14px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 50px; padding: 8px 8px 8px 20px;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
-
-    .input-area:focus-within {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(232, 185, 35, 0.15);
-    }
-
-    .input-area label {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      white-space: nowrap;
-      font-weight: 500;
-    }
-
-    .input-controls {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
+    .input-area:focus-within { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(232, 185, 35, 0.15); }
+    .input-area label { font-size: 0.82rem; color: var(--text-muted); white-space: nowrap; font-weight: 500; }
+    .input-controls { display: flex; align-items: center; gap: 4px; }
 
     #quantidade {
-      width: 120px;
-      background: transparent;
-      border: none;
-      padding: 8px 4px;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      text-align: center;
-      outline: none;
-      font-variant-numeric: tabular-nums;
+      width: 120px; background: transparent; border: none; padding: 8px 4px;
+      font-size: 1.3rem; font-weight: 700; color: var(--gold-light);
+      text-align: center; outline: none; font-variant-numeric: tabular-nums;
     }
-
     #quantidade::-webkit-inner-spin-button,
-    #quantidade::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-    }
+    #quantidade::-webkit-outer-spin-button { -webkit-appearance: none; }
 
     button.btn {
-      background: var(--gold);
-      color: #0a1628;
-      border: none;
-      border-radius: 50%;
-      width: 38px;
-      height: 38px;
-      font-size: 1.25rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: var(--gold); color: #0a1628; border: none; border-radius: 50%;
+      width: 38px; height: 38px; font-size: 1.25rem; font-weight: 700;
+      cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center;
       box-shadow: 0 2px 10px rgba(232, 185, 35, 0.3);
     }
+    button.btn:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(232, 185, 35, 0.4); }
+    button.btn:active { transform: scale(0.94); }
 
-    button.btn:hover {
-      background: var(--gold-light);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(232, 185, 35, 0.4);
-    }
+    .error { color: var(--danger); font-size: 0.78rem; min-height: 1.1em; text-align: right; margin-top: 6px; padding-right: 8px; }
 
-    button.btn:active {
-      transform: scale(0.94);
-    }
-
-    .error {
-      color: #e07a5f;
-      font-size: 0.78rem;
-      min-height: 1.1em;
-      text-align: right;
-      margin-top: 6px;
-      padding-right: 8px;
-    }
-
-    /* ========== MAIN ========== */
     main {
-      flex: 1;
-      padding: 36px 48px 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-      max-width: 1400px;
-      margin: 0 auto;
-      width: 100%;
+      flex: 1; padding: 36px 48px 32px; display: flex; flex-direction: column;
+      gap: 36px; max-width: 1400px; margin: 0 auto; width: 100%;
     }
 
     .section-title {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--gold);
-      font-weight: 600;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.16em;
+      color: var(--gold); font-weight: 600; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 12px;
     }
-
     .section-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
+      content: ''; flex: 1; height: 1px;
       background: linear-gradient(90deg, var(--border), transparent);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .grid-wide {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-    }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .grid-wide { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
 
     .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+      padding: 22px 24px; display: flex; flex-direction: column; gap: 5px;
+      transition: all 0.25s ease; position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .card:hover { background: var(--card-hover); border-color: var(--border-light); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.35); }
+    .card:hover::before { opacity: 1; }
+    .card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; font-weight: 500; }
+    .card .value { font-size: 1.7rem; font-weight: 800; color: var(--text); line-height: 1.15; font-variant-numeric: tabular-nums; }
+    .card .sub { font-size: 0.74rem; color: var(--text-dim); margin-top: 2px; }
+    .card.gold { border-color: rgba(232,185,35,0.3); background: linear-gradient(160deg, #1a2a18 0%, #12233a 100%); }
+    .card.gold .value { color: var(--gold-light); }
+    .card.highlight { border-color: rgba(232,185,35,0.5); background: linear-gradient(145deg, #1f2e15 0%, #152a12 40%, #12233a 100%); box-shadow: 0 0 30px rgba(232,185,35,0.1); }
+    .card.highlight .value { color: var(--gold-light); text-shadow: 0 0 20px rgba(232,185,35,0.3); }
+    .card.highlight .label { color: var(--gold); }
+
+    /* ========== FORMS ========== */
+    .forms-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .form-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 22px 24px;
+      padding: 24px;
+    }
+
+    .form-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: var(--gold-light);
       display: flex;
-      flex-direction: column;
-      gap: 5px;
-      transition: all 0.25s ease;
-      position: relative;
-      overflow: hidden;
+      align-items: center;
+      gap: 8px;
     }
 
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
+    .form-group {
+      margin-bottom: 14px;
     }
 
-    .card:hover {
-      background: var(--card-hover);
-      border-color: var(--border-light);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card .label {
-      font-size: 0.72rem;
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
       font-weight: 500;
     }
 
-    .card .value {
-      font-size: 1.7rem;
-      font-weight: 800;
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
       color: var(--text);
-      line-height: 1.15;
-      font-variant-numeric: tabular-nums;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
-    .card .sub {
-      font-size: 0.74rem;
-      color: var(--text-dim);
-      margin-top: 2px;
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(232, 185, 35, 0.12);
     }
 
-    .card.gold {
-      border-color: rgba(232, 185, 35, 0.3);
-      background: linear-gradient(160deg, #1a2a18 0%, #12233a 100%);
-    }
-
-    .card.gold .value {
+    .form-group input[readonly] {
       color: var(--gold-light);
+      font-weight: 600;
+      cursor: default;
     }
 
-    .card.highlight {
-      border-color: rgba(232, 185, 35, 0.5);
-      background: linear-gradient(145deg, #1f2e15 0%, #152a12 40%, #12233a 100%);
-      box-shadow: 0 0 30px rgba(232, 185, 35, 0.1);
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
 
-    .card.highlight .value {
-      color: var(--gold-light);
-      text-shadow: 0 0 20px rgba(232, 185, 35, 0.3);
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(145deg, var(--gold), var(--gold-dark));
+      color: #0a1628;
+      border: none;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 8px;
+      box-shadow: 0 2px 12px rgba(232, 185, 35, 0.25);
     }
 
-    .card.highlight .label {
-      color: var(--gold);
+    .btn-submit:hover {
+      background: linear-gradient(145deg, var(--gold-light), var(--gold));
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(232, 185, 35, 0.35);
     }
 
-    /* ========== FOOTER ========== */
-    footer {
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-msg {
+      font-size: 0.8rem;
+      margin-top: 10px;
+      min-height: 1.2em;
       text-align: center;
-      padding: 18px 24px;
-      color: var(--text-dim);
-      font-size: 0.78rem;
-      border-top: 1px solid var(--border);
-      background: var(--bg-secondary);
+    }
+    .form-msg.success { color: var(--success); }
+    .form-msg.error { color: var(--danger); }
+
+    /* ========== TABLES ========== */
+    .tables-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
     }
 
-    footer span {
-      color: var(--gold);
+    .table-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .table-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--gold-light);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+
+    th {
+      text-align: left;
+      padding: 10px 8px;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.7rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: var(--card);
+    }
+
+    td {
+      padding: 10px 8px;
+      border-bottom: 1px solid rgba(30, 58, 85, 0.5);
+      color: var(--text);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(232, 185, 35, 0.04); }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.72rem;
       font-weight: 600;
     }
+    .badge-lean { background: rgba(232, 185, 35, 0.15); color: var(--gold-light); }
 
-    /* Responsivo */
+    .empty-state {
+      text-align: center;
+      padding: 30px 10px;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    .status-firebase {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--text-dim);
+    }
+    .status-dot.online { background: var(--success); box-shadow: 0 0 8px var(--success); }
+    .status-dot.offline { background: var(--danger); }
+
+    footer {
+      text-align: center; padding: 18px 24px; color: var(--text-dim);
+      font-size: 0.78rem; border-top: 1px solid var(--border); background: var(--bg-secondary);
+    }
+    footer span { color: var(--gold); font-weight: 600; }
+
     @media (max-width: 1400px) {
       .grid-wide { grid-template-columns: repeat(3, 1fr); }
     }
-
     @media (max-width: 1100px) {
-      header {
-        flex-direction: column;
-        gap: 16px;
-        padding: 16px 24px;
-      }
+      header { flex-direction: column; gap: 16px; padding: 16px 24px; }
       main { padding: 28px 20px; }
       .grid, .grid-wide { grid-template-columns: repeat(2, 1fr); }
+      .forms-grid, .tables-grid { grid-template-columns: 1fr; }
     }
-
     @media (max-width: 600px) {
       .grid, .grid-wide { grid-template-columns: 1fr; }
       .logo-area img { height: 50px; }
       .logo-text h1 { font-size: 1.2rem; }
       #quantidade { width: 100px; font-size: 1.15rem; }
       .input-area { border-radius: 16px; padding: 10px 12px; flex-wrap: wrap; justify-content: center; }
+      .form-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
-  <!-- HEADER -->
   <header>
     <div class="logo-area">
       <img src="https://r2.fivemanage.com/rKtnN53BqfGso2028mTk2/complexo.png" alt="Marketada Logo">
@@ -349,7 +357,6 @@
         <p>Materiais • Peso • Mochilas • Valor final</p>
       </div>
     </div>
-
     <div>
       <div class="input-area">
         <label for="quantidade">Quantidade desejada</label>
@@ -360,10 +367,13 @@
         </div>
       </div>
       <div class="error" id="erro"></div>
+      <div class="status-firebase" style="margin-top:8px;justify-content:flex-end;">
+        <span class="status-dot" id="firebase-status"></span>
+        <span id="firebase-status-text">Conectando...</span>
+      </div>
     </div>
   </header>
 
-  <!-- MAIN -->
   <main>
     <!-- Materiais -->
     <div>
@@ -376,6 +386,103 @@
       <div class="section-title">Produção, peso e valor</div>
       <div class="grid-wide" id="producao"></div>
     </div>
+
+    <!-- Vendas e Encomendas -->
+    <div>
+      <div class="section-title">Registrar vendas e encomendas</div>
+      <div class="forms-grid">
+        <!-- VENDAS -->
+        <div class="form-card">
+          <h3>💰 Registrar Venda</h3>
+          <form id="form-venda">
+            <div class="form-group">
+              <label>Produto</label>
+              <input type="text" value="Lean" readonly>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Quantidade</label>
+                <input type="number" id="venda-qtd" min="1" step="1" required placeholder="Ex: 500">
+              </div>
+              <div class="form-group">
+                <label>Valor Total ($)</label>
+                <input type="number" id="venda-valor" min="0" step="1" required placeholder="Ex: 40000">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Família</label>
+              <input type="text" id="venda-familia" required placeholder="Nome da família">
+            </div>
+            <button type="submit" class="btn-submit" id="btn-venda">Registrar Venda</button>
+            <div class="form-msg" id="msg-venda"></div>
+          </form>
+        </div>
+
+        <!-- ENCOMENDAS -->
+        <div class="form-card">
+          <h3>📦 Registrar Encomenda</h3>
+          <form id="form-encomenda">
+            <div class="form-group">
+              <label>Produto</label>
+              <input type="text" value="Lean" readonly>
+            </div>
+            <div class="form-group">
+              <label>Quantidade</label>
+              <input type="number" id="encomenda-qtd" min="1" step="1" required placeholder="Ex: 1000">
+            </div>
+            <div class="form-group">
+              <label>Família</label>
+              <input type="text" id="encomenda-familia" required placeholder="Nome da família">
+            </div>
+            <button type="submit" class="btn-submit" id="btn-encomenda">Registrar Encomenda</button>
+            <div class="form-msg" id="msg-encomenda"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Listas -->
+    <div>
+      <div class="section-title">Registros recentes</div>
+      <div class="tables-grid">
+        <div class="table-card">
+          <h3>Últimas Vendas</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Qtd</th>
+                  <th>Valor</th>
+                  <th>Família</th>
+                </tr>
+              </thead>
+              <tbody id="lista-vendas">
+                <tr><td colspan="4" class="empty-state">Carregando...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <h3>Últimas Encomendas</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Qtd</th>
+                  <th>Família</th>
+                </tr>
+              </thead>
+              <tbody id="lista-encomendas">
+                <tr><td colspan="3" class="empty-state">Carregando...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer>
@@ -384,7 +491,42 @@
     <span>4 balas de goma</span> + <span>1 misturador</span>
   </footer>
 
-  <script>
+  <!-- Firebase SDK -->
+  <script type="module">
+    // ===================== FIREBASE CONFIG =====================
+    // SUBSTITUA PELOS DADOS DO SEU PROJETO FIREBASE
+    const firebaseConfig = {
+      apiKey: "AIzaSyB70oPd_fjDuVxhRXR_M98cIKeDcrc-Vzw",
+      authDomain: "marketada-be0aa.firebaseapp.com",
+      projectId: "marketada-be0aa",
+      storageBucket: "marketada-be0aa.firebasestorage.app",
+      messagingSenderId: "1004699103078",
+      appId: "1:1004699103078:web:89b2c6d6cb7cf5710262a7"
+    };
+    // ===========================================================
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, query, orderBy, limit, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+    const statusDot = document.getElementById('firebase-status');
+    const statusText = document.getElementById('firebase-status-text');
+
+    let db = null;
+    let firebaseReady = false;
+
+    try {
+      const app = initializeApp(firebaseConfig);
+      db = getFirestore(app);
+      firebaseReady = true;
+      statusDot.classList.add('online');
+      statusText.textContent = 'Firebase conectado';
+    } catch (e) {
+      statusDot.classList.add('offline');
+      statusText.textContent = 'Firebase não configurado';
+      console.warn('Firebase não configurado. Preencha o firebaseConfig.');
+    }
+
+    // ===================== CALCULADORA =====================
     const inputQtd = document.getElementById('quantidade');
     const erroEl = document.getElementById('erro');
     const materiaisEl = document.getElementById('materiais');
@@ -404,23 +546,23 @@
     function formatarNumero(n) {
       return n.toLocaleString('pt-BR');
     }
-
     function formatarMoeda(n) {
-      return '$ ' + n.toLocaleString('pt-BR');
+      return '$ ' + Number(n).toLocaleString('pt-BR');
     }
 
     function calcular(qtd) {
       const lotes = Math.ceil(qtd / UNIDADES_POR_LOTE);
-      const refrigerantes = lotes * REFRIGERANTES_POR_LOTE;
-      const xaropes = lotes * XAROPES_POR_LOTE;
-      const balas = lotes * BALAS_POR_LOTE;
-      const misturadores = lotes * MISTURADORES_POR_LOTE;
-      const producaoReal = lotes * UNIDADES_POR_LOTE;
-      const pesoTotal = qtd * PESO_POR_UNIDADE;
-      const mochilas = Math.ceil(pesoTotal / CAPACIDADE_MOCHILA);
-      const valorTotal = qtd * VALOR_UNITARIO;
-
-      return { lotes, refrigerantes, xaropes, balas, misturadores, producaoReal, pesoTotal, mochilas, valorTotal };
+      return {
+        lotes,
+        refrigerantes: lotes * REFRIGERANTES_POR_LOTE,
+        xaropes: lotes * XAROPES_POR_LOTE,
+        balas: lotes * BALAS_POR_LOTE,
+        misturadores: lotes * MISTURADORES_POR_LOTE,
+        producaoReal: lotes * UNIDADES_POR_LOTE,
+        pesoTotal: qtd * PESO_POR_UNIDADE,
+        mochilas: Math.ceil((qtd * PESO_POR_UNIDADE) / CAPACIDADE_MOCHILA),
+        valorTotal: qtd * VALOR_UNITARIO
+      };
     }
 
     function renderizar(dados, qtd) {
@@ -446,7 +588,6 @@
           <span class="sub">1 por lote × ${dados.lotes} lotes</span>
         </div>
       `;
-
       producaoEl.innerHTML = `
         <div class="card gold">
           <span class="label">Produção real</span>
@@ -479,38 +620,175 @@
     function atualizar() {
       const valor = inputQtd.value.trim();
       const qtd = parseInt(valor, 10);
-
       if (valor === '' || isNaN(qtd) || qtd < 1 || !Number.isInteger(qtd)) {
         erroEl.textContent = 'Informe um número inteiro positivo.';
         materiaisEl.innerHTML = '';
         producaoEl.innerHTML = '';
         return;
       }
-
       erroEl.textContent = '';
-      const dados = calcular(qtd);
-      renderizar(dados, qtd);
+      renderizar(calcular(qtd), qtd);
     }
 
     inputQtd.addEventListener('input', atualizar);
     inputQtd.addEventListener('change', atualizar);
-
     btnMenos.addEventListener('click', () => {
       const atual = parseInt(inputQtd.value, 10) || 0;
-      if (atual > 1) {
-        inputQtd.value = atual - 1;
-        atualizar();
-      }
+      if (atual > 1) { inputQtd.value = atual - 1; atualizar(); }
     });
-
     btnMais.addEventListener('click', () => {
       const atual = parseInt(inputQtd.value, 10) || 0;
       inputQtd.value = atual + 1;
       atualizar();
     });
-
-    // Inicializa
     atualizar();
+
+    // ===================== VENDAS =====================
+    const formVenda = document.getElementById('form-venda');
+    const msgVenda = document.getElementById('msg-venda');
+    const btnVenda = document.getElementById('btn-venda');
+
+    formVenda.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!firebaseReady) {
+        msgVenda.className = 'form-msg error';
+        msgVenda.textContent = 'Firebase não configurado. Veja o guia abaixo.';
+        return;
+      }
+
+      const qtd = parseInt(document.getElementById('venda-qtd').value, 10);
+      const valor = parseFloat(document.getElementById('venda-valor').value);
+      const familia = document.getElementById('venda-familia').value.trim();
+
+      if (!qtd || qtd < 1 || isNaN(valor) || valor < 0 || !familia) {
+        msgVenda.className = 'form-msg error';
+        msgVenda.textContent = 'Preencha todos os campos corretamente.';
+        return;
+      }
+
+      btnVenda.disabled = true;
+      msgVenda.className = 'form-msg';
+      msgVenda.textContent = 'Salvando...';
+
+      try {
+        await addDoc(collection(db, 'vendas'), {
+          produto: 'Lean',
+          quantidade: qtd,
+          valorTotal: valor,
+          familia: familia,
+          criadoEm: serverTimestamp()
+        });
+        msgVenda.className = 'form-msg success';
+        msgVenda.textContent = 'Venda registrada com sucesso!';
+        formVenda.reset();
+      } catch (err) {
+        console.error(err);
+        msgVenda.className = 'form-msg error';
+        msgVenda.textContent = 'Erro ao salvar. Verifique as regras do Firestore.';
+      } finally {
+        btnVenda.disabled = false;
+      }
+    });
+
+    // ===================== ENCOMENDAS =====================
+    const formEncomenda = document.getElementById('form-encomenda');
+    const msgEncomenda = document.getElementById('msg-encomenda');
+    const btnEncomenda = document.getElementById('btn-encomenda');
+
+    formEncomenda.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!firebaseReady) {
+        msgEncomenda.className = 'form-msg error';
+        msgEncomenda.textContent = 'Firebase não configurado. Veja o guia abaixo.';
+        return;
+      }
+
+      const qtd = parseInt(document.getElementById('encomenda-qtd').value, 10);
+      const familia = document.getElementById('encomenda-familia').value.trim();
+
+      if (!qtd || qtd < 1 || !familia) {
+        msgEncomenda.className = 'form-msg error';
+        msgEncomenda.textContent = 'Preencha todos os campos corretamente.';
+        return;
+      }
+
+      btnEncomenda.disabled = true;
+      msgEncomenda.className = 'form-msg';
+      msgEncomenda.textContent = 'Salvando...';
+
+      try {
+        await addDoc(collection(db, 'encomendas'), {
+          produto: 'Lean',
+          quantidade: qtd,
+          familia: familia,
+          criadoEm: serverTimestamp()
+        });
+        msgEncomenda.className = 'form-msg success';
+        msgEncomenda.textContent = 'Encomenda registrada com sucesso!';
+        formEncomenda.reset();
+      } catch (err) {
+        console.error(err);
+        msgEncomenda.className = 'form-msg error';
+        msgEncomenda.textContent = 'Erro ao salvar. Verifique as regras do Firestore.';
+      } finally {
+        btnEncomenda.disabled = false;
+      }
+    });
+
+    // ===================== LISTAS EM TEMPO REAL =====================
+    function formatarData(timestamp) {
+      if (!timestamp) return '—';
+      const d = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+      return d.toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+    }
+
+    if (firebaseReady) {
+      // Vendas
+      const qVendas = query(collection(db, 'vendas'), orderBy('criadoEm', 'desc'), limit(20));
+      onSnapshot(qVendas, (snap) => {
+        const tbody = document.getElementById('lista-vendas');
+        if (snap.empty) {
+          tbody.innerHTML = '<tr><td colspan="4" class="empty-state">Nenhuma venda registrada</td></tr>';
+          return;
+        }
+        tbody.innerHTML = snap.docs.map(doc => {
+          const d = doc.data();
+          return `<tr>
+            <td>${formatarData(d.criadoEm)}</td>
+            <td>${formatarNumero(d.quantidade)}</td>
+            <td>${formatarMoeda(d.valorTotal)}</td>
+            <td>${d.familia || '—'}</td>
+          </tr>`;
+        }).join('');
+      }, (err) => {
+        document.getElementById('lista-vendas').innerHTML = '<tr><td colspan="4" class="empty-state">Erro ao carregar</td></tr>';
+        console.error(err);
+      });
+
+      // Encomendas
+      const qEncomendas = query(collection(db, 'encomendas'), orderBy('criadoEm', 'desc'), limit(20));
+      onSnapshot(qEncomendas, (snap) => {
+        const tbody = document.getElementById('lista-encomendas');
+        if (snap.empty) {
+          tbody.innerHTML = '<tr><td colspan="3" class="empty-state">Nenhuma encomenda registrada</td></tr>';
+          return;
+        }
+        tbody.innerHTML = snap.docs.map(doc => {
+          const d = doc.data();
+          return `<tr>
+            <td>${formatarData(d.criadoEm)}</td>
+            <td>${formatarNumero(d.quantidade)}</td>
+            <td>${d.familia || '—'}</td>
+          </tr>`;
+        }).join('');
+      }, (err) => {
+        document.getElementById('lista-encomendas').innerHTML = '<tr><td colspan="3" class="empty-state">Erro ao carregar</td></tr>';
+        console.error(err);
+      });
+    } else {
+      document.getElementById('lista-vendas').innerHTML = '<tr><td colspan="4" class="empty-state">Configure o Firebase</td></tr>';
+      document.getElementById('lista-encomendas').innerHTML = '<tr><td colspan="3" class="empty-state">Configure o Firebase</td></tr>';
+    }
   </script>
 </body>
 </html>
