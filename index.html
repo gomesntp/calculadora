@@ -24,9 +24,7 @@
       --success: #3dd68c;
       --danger: #e07a5f;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       background: var(--bg);
@@ -38,7 +36,6 @@
         radial-gradient(ellipse 70% 40% at 50% -5%, rgba(232, 185, 35, 0.08) 0%, transparent 55%),
         radial-gradient(ellipse 50% 30% at 85% 90%, rgba(126, 184, 212, 0.06) 0%, transparent 50%);
     }
-
     header {
       display: flex;
       align-items: center;
@@ -51,7 +48,6 @@
       top: 0;
       z-index: 100;
     }
-
     .logo-area { display: flex; align-items: center; gap: 18px; }
     .logo-area img {
       height: 62px; width: auto;
@@ -62,7 +58,6 @@
     .logo-text h1 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text); }
     .logo-text h1 span { color: var(--gold); }
     .logo-text p { color: var(--text-muted); font-size: 0.8rem; margin-top: 2px; }
-
     .input-area {
       display: flex; align-items: center; gap: 14px;
       background: var(--card); border: 1px solid var(--border);
@@ -72,7 +67,6 @@
     .input-area:focus-within { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(232, 185, 35, 0.15); }
     .input-area label { font-size: 0.82rem; color: var(--text-muted); white-space: nowrap; font-weight: 500; }
     .input-controls { display: flex; align-items: center; gap: 4px; }
-
     #quantidade {
       width: 120px; background: transparent; border: none; padding: 8px 4px;
       font-size: 1.3rem; font-weight: 700; color: var(--gold-light);
@@ -80,7 +74,6 @@
     }
     #quantidade::-webkit-inner-spin-button,
     #quantidade::-webkit-outer-spin-button { -webkit-appearance: none; }
-
     button.btn {
       background: var(--gold); color: #0a1628; border: none; border-radius: 50%;
       width: 38px; height: 38px; font-size: 1.25rem; font-weight: 700;
@@ -89,14 +82,11 @@
     }
     button.btn:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(232, 185, 35, 0.4); }
     button.btn:active { transform: scale(0.94); }
-
     .error { color: var(--danger); font-size: 0.78rem; min-height: 1.1em; text-align: right; margin-top: 6px; padding-right: 8px; }
-
     main {
       flex: 1; padding: 36px 48px 32px; display: flex; flex-direction: column;
       gap: 36px; max-width: 1400px; margin: 0 auto; width: 100%;
     }
-
     .section-title {
       font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.16em;
       color: var(--gold); font-weight: 600; margin-bottom: 14px;
@@ -106,10 +96,8 @@
       content: ''; flex: 1; height: 1px;
       background: linear-gradient(90deg, var(--border), transparent);
     }
-
     .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
     .grid-wide { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-
     .card {
       background: var(--card); border: 1px solid var(--border); border-radius: 16px;
       padding: 22px 24px; display: flex; flex-direction: column; gap: 5px;
@@ -130,21 +118,13 @@
     .card.highlight { border-color: rgba(232,185,35,0.5); background: linear-gradient(145deg, #1f2e15 0%, #152a12 40%, #12233a 100%); box-shadow: 0 0 30px rgba(232,185,35,0.1); }
     .card.highlight .value { color: var(--gold-light); text-shadow: 0 0 20px rgba(232,185,35,0.3); }
     .card.highlight .label { color: var(--gold); }
-
-    /* ========== FORMS ========== */
-    .forms-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
+    .forms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .form-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 24px;
     }
-
     .form-card h3 {
       font-size: 1rem;
       font-weight: 700;
@@ -154,9 +134,7 @@
       align-items: center;
       gap: 8px;
     }
-
     .form-group { margin-bottom: 14px; }
-
     .form-group label {
       display: block;
       font-size: 0.75rem;
@@ -166,9 +144,7 @@
       margin-bottom: 6px;
       font-weight: 500;
     }
-
-    .form-group input,
-    .form-group select {
+    .form-group input {
       width: 100%;
       background: var(--bg);
       border: 1px solid var(--border);
@@ -179,25 +155,16 @@
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
-
-    .form-group input:focus,
-    .form-group select:focus {
+    .form-group input:focus {
       border-color: var(--gold);
       box-shadow: 0 0 0 3px rgba(232, 185, 35, 0.12);
     }
-
     .form-group input[readonly] {
       color: var(--gold-light);
       font-weight: 600;
       cursor: default;
     }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .btn-submit {
       width: 100%;
       background: linear-gradient(145deg, var(--gold), var(--gold-dark));
@@ -212,35 +179,16 @@
       margin-top: 8px;
       box-shadow: 0 2px 12px rgba(232, 185, 35, 0.25);
     }
-
     .btn-submit:hover {
       background: linear-gradient(145deg, var(--gold-light), var(--gold));
       transform: translateY(-1px);
       box-shadow: 0 4px 16px rgba(232, 185, 35, 0.35);
     }
-
-    .btn-submit:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .form-msg {
-      font-size: 0.8rem;
-      margin-top: 10px;
-      min-height: 1.2em;
-      text-align: center;
-    }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-msg { font-size: 0.8rem; margin-top: 10px; min-height: 1.2em; text-align: center; }
     .form-msg.success { color: var(--success); }
     .form-msg.error { color: var(--danger); }
-
-    /* ========== TABLES ========== */
-    .tables-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
+    .tables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .table-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -248,49 +196,18 @@
       padding: 20px;
       overflow: hidden;
     }
-
-    .table-card h3 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 14px;
-      color: var(--gold-light);
-    }
-
-    .table-wrap {
-      overflow-x: auto;
-      max-height: 320px;
-      overflow-y: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.82rem;
-    }
-
+    .table-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 14px; color: var(--gold-light); }
+    .table-wrap { overflow-x: auto; max-height: 340px; overflow-y: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
     th {
-      text-align: left;
-      padding: 10px 8px;
-      color: var(--text-muted);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-size: 0.7rem;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      background: var(--card);
+      text-align: left; padding: 10px 8px; color: var(--text-muted);
+      font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+      font-size: 0.7rem; border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; background: var(--card);
     }
-
-    td {
-      padding: 10px 8px;
-      border-bottom: 1px solid rgba(30, 58, 85, 0.5);
-      color: var(--text);
-    }
-
+    td { padding: 10px 8px; border-bottom: 1px solid rgba(30, 58, 85, 0.5); color: var(--text); }
     tr:last-child td { border-bottom: none; }
     tr:hover td { background: rgba(232, 185, 35, 0.04); }
-
     .btn-delete {
       background: transparent;
       border: 1px solid rgba(224, 122, 95, 0.4);
@@ -302,41 +219,48 @@
       cursor: pointer;
       transition: all 0.2s;
     }
-    .btn-delete:hover {
-      background: rgba(224, 122, 95, 0.15);
-      border-color: var(--danger);
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: 30px 10px;
-      color: var(--text-dim);
-      font-size: 0.85rem;
-    }
-
-    .status-firebase {
+    .btn-delete:hover { background: rgba(224, 122, 95, 0.15); border-color: var(--danger); }
+    .btn-entregue {
+      background: transparent;
+      border: 1px solid rgba(61, 214, 140, 0.4);
+      color: var(--success);
+      border-radius: 8px;
+      padding: 5px 10px;
       font-size: 0.72rem;
-      color: var(--text-dim);
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-right: 6px;
     }
-    .status-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--text-dim);
+    .btn-entregue:hover { background: rgba(61, 214, 140, 0.15); border-color: var(--success); }
+    .btn-entregue:disabled {
+      opacity: 0.5;
+      cursor: default;
+      border-color: rgba(61, 214, 140, 0.25);
     }
+    .badge-status {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .badge-pendente { background: rgba(232, 185, 35, 0.15); color: var(--gold-light); }
+    .badge-entregue { background: rgba(61, 214, 140, 0.15); color: var(--success); }
+    .empty-state { text-align: center; padding: 30px 10px; color: var(--text-dim); font-size: 0.85rem; }
+    .status-firebase {
+      font-size: 0.72rem; color: var(--text-dim);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--text-dim); }
     .status-dot.online { background: var(--success); box-shadow: 0 0 8px var(--success); }
     .status-dot.offline { background: var(--danger); }
-
     footer {
       text-align: center; padding: 18px 24px; color: var(--text-dim);
       font-size: 0.78rem; border-top: 1px solid var(--border); background: var(--bg-secondary);
     }
     footer span { color: var(--gold); font-weight: 600; }
-
-    @media (max-width: 1400px) {
-      .grid-wide { grid-template-columns: repeat(3, 1fr); }
-    }
+    @media (max-width: 1400px) { .grid-wide { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 1100px) {
       header { flex-direction: column; gap: 16px; padding: 16px 24px; }
       main { padding: 28px 20px; }
@@ -378,21 +302,15 @@
       </div>
     </div>
   </header>
-
   <main>
-    <!-- Materiais -->
     <div>
       <div class="section-title">Materiais necessários</div>
       <div class="grid" id="materiais"></div>
     </div>
-
-    <!-- Produção + Peso + Valor -->
     <div>
       <div class="section-title">Produção, peso e valor</div>
       <div class="grid-wide" id="producao"></div>
     </div>
-
-    <!-- Vendas e Encomendas -->
     <div>
       <div class="section-title">Registrar vendas e encomendas</div>
       <div class="forms-grid">
@@ -411,7 +329,7 @@
               </div>
               <div class="form-group">
                 <label>Valor Total ($)</label>
-                <input type="number" id="venda-valor" min="0" step="1" required placeholder="Ex: 40000">
+                <input type="number" id="venda-valor" min="0" step="1" required placeholder="Automático" readonly>
               </div>
             </div>
             <div class="form-group">
@@ -422,7 +340,6 @@
             <div class="form-msg" id="msg-venda"></div>
           </form>
         </div>
-
         <!-- ENCOMENDAS -->
         <div class="form-card">
           <h3>📦 Registrar Encomenda</h3>
@@ -431,9 +348,15 @@
               <label>Produto</label>
               <input type="text" value="Lean" readonly>
             </div>
-            <div class="form-group">
-              <label>Quantidade</label>
-              <input type="number" id="encomenda-qtd" min="1" step="1" required placeholder="Ex: 1000">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Quantidade</label>
+                <input type="number" id="encomenda-qtd" min="1" step="1" required placeholder="Ex: 1000">
+              </div>
+              <div class="form-group">
+                <label>Valor Total ($)</label>
+                <input type="number" id="encomenda-valor" min="0" step="1" required placeholder="Automático" readonly>
+              </div>
             </div>
             <div class="form-group">
               <label>Família</label>
@@ -445,8 +368,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Listas -->
     <div>
       <div class="section-title">Registros recentes</div>
       <div class="tables-grid">
@@ -469,21 +390,22 @@
             </table>
           </div>
         </div>
-
         <div class="table-card">
           <h3>Últimas Encomendas</h3>
           <div class="table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th>Data</th>
+                  <th>Registrado</th>
                   <th>Qtd</th>
+                  <th>Valor</th>
                   <th>Família</th>
+                  <th>Status</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody id="lista-encomendas">
-                <tr><td colspan="4" class="empty-state">Carregando...</td></tr>
+                <tr><td colspan="6" class="empty-state">Carregando...</td></tr>
               </tbody>
             </table>
           </div>
@@ -491,15 +413,10 @@
       </div>
     </div>
   </main>
-
   <footer>
     Desenvolvido by <span>Gomesntp</span>
   </footer>
-
-  <!-- Firebase SDK -->
   <script type="module">
-    // ===================== FIREBASE CONFIG =====================
-    // SUBSTITUA PELOS DADOS DO SEU PROJETO FIREBASE
     const firebaseConfig = {
       apiKey: "AIzaSyB70oPd_fjDuVxhRXR_M98cIKeDcrc-Vzw",
       authDomain: "marketada-be0aa.firebaseapp.com",
@@ -508,19 +425,13 @@
       messagingSenderId: "1004699103078",
       appId: "1:1004699103078:web:89b2c6d6cb7cf5710262a7"
     };
-    // ===========================================================
-
     const SENHA_EXCLUSAO = "gomesmkt";
-
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-    import { getFirestore, collection, addDoc, query, orderBy, limit, onSnapshot, serverTimestamp, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-
+    import { getFirestore, collection, addDoc, query, orderBy, limit, onSnapshot, serverTimestamp, doc, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
     const statusDot = document.getElementById('firebase-status');
     const statusText = document.getElementById('firebase-status-text');
-
     let db = null;
     let firebaseReady = false;
-
     try {
       const app = initializeApp(firebaseConfig);
       db = getFirestore(app);
@@ -530,17 +441,15 @@
     } catch (e) {
       statusDot.classList.add('offline');
       statusText.textContent = 'Firebase não configurado';
-      console.warn('Firebase não configurado. Preencha o firebaseConfig.');
+      console.warn('Firebase não configurado.');
     }
 
-    // ===================== CALCULADORA =====================
     const inputQtd = document.getElementById('quantidade');
     const erroEl = document.getElementById('erro');
     const materiaisEl = document.getElementById('materiais');
     const producaoEl = document.getElementById('producao');
     const btnMenos = document.getElementById('btn-menos');
     const btnMais = document.getElementById('btn-mais');
-
     const UNIDADES_POR_LOTE = 33;
     const REFRIGERANTES_POR_LOTE = 4;
     const XAROPES_POR_LOTE = 4;
@@ -550,12 +459,8 @@
     const CAPACIDADE_MOCHILA = 100;
     const VALOR_UNITARIO = 80;
 
-    function formatarNumero(n) {
-      return n.toLocaleString('pt-BR');
-    }
-    function formatarMoeda(n) {
-      return '$ ' + Number(n).toLocaleString('pt-BR');
-    }
+    function formatarNumero(n) { return n.toLocaleString('pt-BR'); }
+    function formatarMoeda(n) { return '$ ' + Number(n).toLocaleString('pt-BR'); }
 
     function calcular(qtd) {
       const lotes = Math.ceil(qtd / UNIDADES_POR_LOTE);
@@ -574,53 +479,17 @@
 
     function renderizar(dados, qtd) {
       materiaisEl.innerHTML = `
-        <div class="card">
-          <span class="label">Refrigerantes</span>
-          <span class="value">${formatarNumero(dados.refrigerantes)}</span>
-          <span class="sub">4 por lote × ${dados.lotes} lotes</span>
-        </div>
-        <div class="card">
-          <span class="label">Xaropes</span>
-          <span class="value">${formatarNumero(dados.xaropes)}</span>
-          <span class="sub">4 por lote × ${dados.lotes} lotes</span>
-        </div>
-        <div class="card">
-          <span class="label">Balas de goma</span>
-          <span class="value">${formatarNumero(dados.balas)}</span>
-          <span class="sub">4 por lote × ${dados.lotes} lotes</span>
-        </div>
-        <div class="card gold">
-          <span class="label">Misturadores</span>
-          <span class="value">${formatarNumero(dados.misturadores)}</span>
-          <span class="sub">1 por lote × ${dados.lotes} lotes</span>
-        </div>
+        <div class="card"><span class="label">Refrigerantes</span><span class="value">${formatarNumero(dados.refrigerantes)}</span><span class="sub">4 por lote × ${dados.lotes} lotes</span></div>
+        <div class="card"><span class="label">Xaropes</span><span class="value">${formatarNumero(dados.xaropes)}</span><span class="sub">4 por lote × ${dados.lotes} lotes</span></div>
+        <div class="card"><span class="label">Balas de goma</span><span class="value">${formatarNumero(dados.balas)}</span><span class="sub">4 por lote × ${dados.lotes} lotes</span></div>
+        <div class="card gold"><span class="label">Misturadores</span><span class="value">${formatarNumero(dados.misturadores)}</span><span class="sub">1 por lote × ${dados.lotes} lotes</span></div>
       `;
       producaoEl.innerHTML = `
-        <div class="card gold">
-          <span class="label">Produção real</span>
-          <span class="value">${formatarNumero(dados.producaoReal)}</span>
-          <span class="sub">${dados.lotes} lotes × 33 un</span>
-        </div>
-        <div class="card">
-          <span class="label">Peso total</span>
-          <span class="value">${formatarNumero(dados.pesoTotal)} kg</span>
-          <span class="sub">${formatarNumero(qtd)} × 0,2 kg</span>
-        </div>
-        <div class="card">
-          <span class="label">Mochilas</span>
-          <span class="value">${formatarNumero(dados.mochilas)}</span>
-          <span class="sub">100 kg cada</span>
-        </div>
-        <div class="card">
-          <span class="label">Valor unitário</span>
-          <span class="value">${formatarMoeda(VALOR_UNITARIO)}</span>
-          <span class="sub">Preço fixo</span>
-        </div>
-        <div class="card highlight">
-          <span class="label">Valor total final</span>
-          <span class="value">${formatarMoeda(dados.valorTotal)}</span>
-          <span class="sub">${formatarNumero(qtd)} × $ 80</span>
-        </div>
+        <div class="card gold"><span class="label">Produção real</span><span class="value">${formatarNumero(dados.producaoReal)}</span><span class="sub">${dados.lotes} lotes × 33 un</span></div>
+        <div class="card"><span class="label">Peso total</span><span class="value">${formatarNumero(dados.pesoTotal)} kg</span><span class="sub">${formatarNumero(qtd)} × 0,2 kg</span></div>
+        <div class="card"><span class="label">Mochilas</span><span class="value">${formatarNumero(dados.mochilas)}</span><span class="sub">100 kg cada</span></div>
+        <div class="card"><span class="label">Valor unitário</span><span class="value">${formatarMoeda(VALOR_UNITARIO)}</span><span class="sub">Preço fixo</span></div>
+        <div class="card highlight"><span class="label">Valor total final</span><span class="value">${formatarMoeda(dados.valorTotal)}</span><span class="sub">${formatarNumero(qtd)} × $ 80</span></div>
       `;
     }
 
@@ -650,128 +519,113 @@
     });
     atualizar();
 
-    // ===================== EXCLUIR REGISTRO =====================
-    async function excluirRegistro(colecao, id) {
-      if (!firebaseReady) {
-        alert('Firebase não configurado.');
-        return;
-      }
-
-      const senha = prompt('Digite a senha para excluir este registro:');
-      if (senha === null) return; // cancelou
-
-      if (senha !== SENHA_EXCLUSAO) {
-        alert('Senha incorreta. Registro não foi excluído.');
-        return;
-      }
-
-      const confirmar = confirm('Tem certeza que deseja excluir este registro?');
-      if (!confirmar) return;
-
-      try {
-        await deleteDoc(doc(db, colecao, id));
-      } catch (err) {
-        console.error(err);
-        alert('Erro ao excluir. Verifique as regras do Firestore.');
-      }
+    // ===== CÁLCULO AUTOMÁTICO VENDA =====
+    const vendaQtdInput = document.getElementById('venda-qtd');
+    const vendaValorInput = document.getElementById('venda-valor');
+    function atualizarValorVenda() {
+      const qtd = parseInt(vendaQtdInput.value, 10);
+      vendaValorInput.value = (!isNaN(qtd) && qtd > 0) ? qtd * VALOR_UNITARIO : '';
     }
+    vendaQtdInput.addEventListener('input', atualizarValorVenda);
+    vendaQtdInput.addEventListener('change', atualizarValorVenda);
 
-    // Expõe a função para os botões
+    // ===== CÁLCULO AUTOMÁTICO ENCOMENDA =====
+    const encomendaQtdInput = document.getElementById('encomenda-qtd');
+    const encomendaValorInput = document.getElementById('encomenda-valor');
+    function atualizarValorEncomenda() {
+      const qtd = parseInt(encomendaQtdInput.value, 10);
+      encomendaValorInput.value = (!isNaN(qtd) && qtd > 0) ? qtd * VALOR_UNITARIO : '';
+    }
+    encomendaQtdInput.addEventListener('input', atualizarValorEncomenda);
+    encomendaQtdInput.addEventListener('change', atualizarValorEncomenda);
+
+    // ===== EXCLUIR =====
+    async function excluirRegistro(colecao, id) {
+      if (!firebaseReady) { alert('Firebase não configurado.'); return; }
+      const senha = prompt('Digite a senha para excluir este registro:');
+      if (senha === null) return;
+      if (senha !== SENHA_EXCLUSAO) { alert('Senha incorreta. Registro não foi excluído.'); return; }
+      if (!confirm('Tem certeza que deseja excluir este registro?')) return;
+      try { await deleteDoc(doc(db, colecao, id)); }
+      catch (err) { console.error(err); alert('Erro ao excluir.'); }
+    }
     window.excluirRegistro = excluirRegistro;
 
-    // ===================== VENDAS =====================
+    // ===== MARCAR COMO ENTREGUE =====
+    async function marcarEntregue(id) {
+      if (!firebaseReady) { alert('Firebase não configurado.'); return; }
+      if (!confirm('Marcar esta encomenda como ENTREGUE?')) return;
+      try {
+        await updateDoc(doc(db, 'encomendas', id), {
+          status: 'entregue',
+          entregueEm: serverTimestamp()
+        });
+      } catch (err) {
+        console.error(err);
+        alert('Erro ao marcar como entregue.');
+      }
+    }
+    window.marcarEntregue = marcarEntregue;
+
+    // ===== VENDAS =====
     const formVenda = document.getElementById('form-venda');
     const msgVenda = document.getElementById('msg-venda');
     const btnVenda = document.getElementById('btn-venda');
-
     formVenda.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (!firebaseReady) {
-        msgVenda.className = 'form-msg error';
-        msgVenda.textContent = 'Firebase não configurado. Veja o guia abaixo.';
-        return;
-      }
-
+      if (!firebaseReady) { msgVenda.className = 'form-msg error'; msgVenda.textContent = 'Firebase não configurado.'; return; }
       const qtd = parseInt(document.getElementById('venda-qtd').value, 10);
       const valor = parseFloat(document.getElementById('venda-valor').value);
       const familia = document.getElementById('venda-familia').value.trim();
-
       if (!qtd || qtd < 1 || isNaN(valor) || valor < 0 || !familia) {
-        msgVenda.className = 'form-msg error';
-        msgVenda.textContent = 'Preencha todos os campos corretamente.';
-        return;
+        msgVenda.className = 'form-msg error'; msgVenda.textContent = 'Preencha todos os campos corretamente.'; return;
       }
-
       btnVenda.disabled = true;
-      msgVenda.className = 'form-msg';
-      msgVenda.textContent = 'Salvando...';
-
+      msgVenda.className = 'form-msg'; msgVenda.textContent = 'Salvando...';
       try {
         await addDoc(collection(db, 'vendas'), {
-          produto: 'Lean',
-          quantidade: qtd,
-          valorTotal: valor,
-          familia: familia,
-          criadoEm: serverTimestamp()
+          produto: 'Lean', quantidade: qtd, valorTotal: valor, familia, criadoEm: serverTimestamp()
         });
-        msgVenda.className = 'form-msg success';
-        msgVenda.textContent = 'Venda registrada com sucesso!';
-        formVenda.reset();
+        msgVenda.className = 'form-msg success'; msgVenda.textContent = 'Venda registrada com sucesso!';
+        formVenda.reset(); vendaValorInput.value = '';
       } catch (err) {
-        console.error(err);
-        msgVenda.className = 'form-msg error';
-        msgVenda.textContent = 'Erro ao salvar. Verifique as regras do Firestore.';
-      } finally {
-        btnVenda.disabled = false;
-      }
+        console.error(err); msgVenda.className = 'form-msg error'; msgVenda.textContent = 'Erro ao salvar.';
+      } finally { btnVenda.disabled = false; }
     });
 
-    // ===================== ENCOMENDAS =====================
+    // ===== ENCOMENDAS =====
     const formEncomenda = document.getElementById('form-encomenda');
     const msgEncomenda = document.getElementById('msg-encomenda');
     const btnEncomenda = document.getElementById('btn-encomenda');
-
     formEncomenda.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (!firebaseReady) {
-        msgEncomenda.className = 'form-msg error';
-        msgEncomenda.textContent = 'Firebase não configurado. Veja o guia abaixo.';
-        return;
-      }
-
+      if (!firebaseReady) { msgEncomenda.className = 'form-msg error'; msgEncomenda.textContent = 'Firebase não configurado.'; return; }
       const qtd = parseInt(document.getElementById('encomenda-qtd').value, 10);
+      const valor = parseFloat(document.getElementById('encomenda-valor').value);
       const familia = document.getElementById('encomenda-familia').value.trim();
-
-      if (!qtd || qtd < 1 || !familia) {
-        msgEncomenda.className = 'form-msg error';
-        msgEncomenda.textContent = 'Preencha todos os campos corretamente.';
-        return;
+      if (!qtd || qtd < 1 || isNaN(valor) || valor < 0 || !familia) {
+        msgEncomenda.className = 'form-msg error'; msgEncomenda.textContent = 'Preencha todos os campos corretamente.'; return;
       }
-
       btnEncomenda.disabled = true;
-      msgEncomenda.className = 'form-msg';
-      msgEncomenda.textContent = 'Salvando...';
-
+      msgEncomenda.className = 'form-msg'; msgEncomenda.textContent = 'Salvando...';
       try {
         await addDoc(collection(db, 'encomendas'), {
           produto: 'Lean',
           quantidade: qtd,
-          familia: familia,
-          criadoEm: serverTimestamp()
+          valorTotal: valor,
+          familia,
+          status: 'pendente',
+          criadoEm: serverTimestamp(),
+          entregueEm: null
         });
-        msgEncomenda.className = 'form-msg success';
-        msgEncomenda.textContent = 'Encomenda registrada com sucesso!';
-        formEncomenda.reset();
+        msgEncomenda.className = 'form-msg success'; msgEncomenda.textContent = 'Encomenda registrada com sucesso!';
+        formEncomenda.reset(); encomendaValorInput.value = '';
       } catch (err) {
-        console.error(err);
-        msgEncomenda.className = 'form-msg error';
-        msgEncomenda.textContent = 'Erro ao salvar. Verifique as regras do Firestore.';
-      } finally {
-        btnEncomenda.disabled = false;
-      }
+        console.error(err); msgEncomenda.className = 'form-msg error'; msgEncomenda.textContent = 'Erro ao salvar.';
+      } finally { btnEncomenda.disabled = false; }
     });
 
-    // ===================== LISTAS EM TEMPO REAL =====================
+    // ===== LISTAS =====
     function formatarData(timestamp) {
       if (!timestamp) return '—';
       const d = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
@@ -779,23 +633,18 @@
     }
 
     if (firebaseReady) {
-      // Vendas
       const qVendas = query(collection(db, 'vendas'), orderBy('criadoEm', 'desc'), limit(20));
       onSnapshot(qVendas, (snap) => {
         const tbody = document.getElementById('lista-vendas');
-        if (snap.empty) {
-          tbody.innerHTML = '<tr><td colspan="5" class="empty-state">Nenhuma venda registrada</td></tr>';
-          return;
-        }
+        if (snap.empty) { tbody.innerHTML = '<tr><td colspan="5" class="empty-state">Nenhuma venda registrada</td></tr>'; return; }
         tbody.innerHTML = snap.docs.map(docSnap => {
           const d = docSnap.data();
-          const id = docSnap.id;
           return `<tr>
             <td>${formatarData(d.criadoEm)}</td>
             <td>${formatarNumero(d.quantidade)}</td>
             <td>${formatarMoeda(d.valorTotal)}</td>
             <td>${d.familia || '—'}</td>
-            <td><button class="btn-delete" onclick="excluirRegistro('vendas', '${id}')">Excluir</button></td>
+            <td><button class="btn-delete" onclick="excluirRegistro('vendas', '${docSnap.id}')">Excluir</button></td>
           </tr>`;
         }).join('');
       }, (err) => {
@@ -803,31 +652,39 @@
         console.error(err);
       });
 
-      // Encomendas
       const qEncomendas = query(collection(db, 'encomendas'), orderBy('criadoEm', 'desc'), limit(20));
       onSnapshot(qEncomendas, (snap) => {
         const tbody = document.getElementById('lista-encomendas');
-        if (snap.empty) {
-          tbody.innerHTML = '<tr><td colspan="4" class="empty-state">Nenhuma encomenda registrada</td></tr>';
-          return;
-        }
+        if (snap.empty) { tbody.innerHTML = '<tr><td colspan="6" class="empty-state">Nenhuma encomenda registrada</td></tr>'; return; }
         tbody.innerHTML = snap.docs.map(docSnap => {
           const d = docSnap.data();
           const id = docSnap.id;
+          const isEntregue = d.status === 'entregue';
+          const statusHtml = isEntregue
+            ? `<span class="badge-status badge-entregue">Entregue ${formatarData(d.entregueEm)}</span>`
+            : `<span class="badge-status badge-pendente">Pendente</span>`;
+          const btnEntregue = isEntregue
+            ? `<button class="btn-entregue" disabled>Entregue</button>`
+            : `<button class="btn-entregue" onclick="marcarEntregue('${id}')">Entregar</button>`;
           return `<tr>
             <td>${formatarData(d.criadoEm)}</td>
             <td>${formatarNumero(d.quantidade)}</td>
+            <td>${formatarMoeda(d.valorTotal || 0)}</td>
             <td>${d.familia || '—'}</td>
-            <td><button class="btn-delete" onclick="excluirRegistro('encomendas', '${id}')">Excluir</button></td>
+            <td>${statusHtml}</td>
+            <td>
+              ${btnEntregue}
+              <button class="btn-delete" onclick="excluirRegistro('encomendas', '${id}')">Excluir</button>
+            </td>
           </tr>`;
         }).join('');
       }, (err) => {
-        document.getElementById('lista-encomendas').innerHTML = '<tr><td colspan="4" class="empty-state">Erro ao carregar</td></tr>';
+        document.getElementById('lista-encomendas').innerHTML = '<tr><td colspan="6" class="empty-state">Erro ao carregar</td></tr>';
         console.error(err);
       });
     } else {
       document.getElementById('lista-vendas').innerHTML = '<tr><td colspan="5" class="empty-state">Configure o Firebase</td></tr>';
-      document.getElementById('lista-encomendas').innerHTML = '<tr><td colspan="4" class="empty-state">Configure o Firebase</td></tr>';
+      document.getElementById('lista-encomendas').innerHTML = '<tr><td colspan="6" class="empty-state">Configure o Firebase</td></tr>';
     }
   </script>
 </body>
