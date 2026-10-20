@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Produção — Marketada</title>
+  <style>
+    :root {
+      --bg: #0a0908;
+      --bg-secondary: #12100e;
+      --card: #1a1612;
+      --card-hover: #221c17;
+      --border: #2e261f;
+      --gold: #d4a017;
+      --gold-light: #e8c547;
+      --gold-dark: #a87b0f;
+      --brown: #3d2e1f;
+      --text: #f5f0e8;
+      --text-muted: #a89b8a;
+      --success: #c9a227;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(ellipse at top left, rgba(212, 160, 23, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(61, 46, 31, 0.4) 0%, transparent 55%);
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      background: linear-gradient(180deg, #12100e 0%, #0e0c0a 100%);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-area img {
+      height: 78px;
+      width: auto;
+      filter: drop-shadow(0 2px 8px rgba(212, 160, 23, 0.25));
+      transition: transform 0.25s ease;
+    }
+
+    .logo-area img:hover {
+      transform: scale(1.03);
+    }
+
+    .logo-text h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-text p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-top: 3px;
+    }
+
+    .input-area {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .input-area label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .input-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #quantidade {
+      width: 150px;
+      background: #0f0d0b;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      text-align: center;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    #quantidade:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.2);
+    }
+
+    #quantidade::-webkit-inner-spin-button,
+    #quantidade::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+
+    button.btn {
+      background: linear-gradient(145deg, var(--gold), var(--gold-dark));
+      color: #1a1208;
+      border: none;
+      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      font-size: 1.35rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(212, 160, 23, 0.3);
+    }
+
+    button.btn:hover {
+      background: linear-gradient(145deg, var(--gold-light), var(--gold));
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(212, 160, 23, 0.4);
+    }
+
+    button.btn:active {
+      transform: scale(0.96);
+    }
+
+    .error {
+      color: #e07a5f;
+      font-size: 0.8rem;
+      min-height: 1.1em;
+      text-align: right;
+      margin-top: 6px;
+    }
+
+    /* ========== MAIN ========== */
+    main {
+      flex: 1;
+      padding: 30px 40px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    .section-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .grid-wide {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .card:hover {
+      background: var(--card-hover);
+      border-color: #3d3428;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card .label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    .card .value {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.15;
+    }
+
+    .card .sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .card.gold {
+      border-color: rgba(212, 160, 23, 0.35);
+      background: linear-gradient(160deg, #1f1a14 0%, #1a1612 100%);
+    }
+
+    .card.gold .value {
+      color: var(--gold-light);
+    }
+
+    .card.highlight {
+      border-color: var(--gold);
+      background: linear-gradient(145deg, #221c14 0%, #1a1610 100%);
+      box-shadow: 0 0 30px rgba(212, 160, 23, 0.12);
+    }
+
+    .card.highlight .value {
+      color: var(--gold-light);
+      text-shadow: 0 0 20px rgba(212, 160, 23, 0.3);
+    }
+
+    .card.highlight .label {
+      color: var(--gold);
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      text-align: center;
+      padding: 16px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+
+    footer span {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* Responsivo */
+    @media (max-width: 1500px) {
+      .grid { grid-template-columns: repeat(4, 1fr); }
+      .grid-wide { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 1100px) {
+      header {
+        flex-direction: column;
+        gap: 18px;
+        padding: 18px 24px;
+      }
+      main { padding: 24px 20px; }
+      .grid, .grid-wide { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .grid, .grid-wide { grid-template-columns: 1fr; }
+      .logo-area img { height: 60px; }
+      .logo-text h1 { font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-area">
+      <img src="https://r2.fivemanage.com/rKtnN53BqfGso2028mTk2/complexo.png" alt="Marketada Logo">
+      <div class="logo-text">
+        <h1>Calculadora de Produção</h1>
+        <p>Materiais • Peso • Mochilas • Valor final</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="input-area">
+        <label for="quantidade">Quantidade desejada</label>
+        <div class="input-controls">
+          <button class="btn" id="btn-menos" aria-label="Diminuir">−</button>
+          <input type="number" id="quantidade" value="2000" min="1" step="1">
+          <button class="btn" id="btn-mais" aria-label="Aumentar">+</button>
+        </div>
+      </div>
+      <div class="error" id="erro"></div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <!-- Materiais -->
+    <div>
+      <div class="section-title">Materiais necessários</div>
+      <div class="grid" id="materiais"></div>
+    </div>
+
+    <!-- Produção + Peso + Valor -->
+    <div>
+      <div class="section-title">Produção, peso e valor</div>
+      <div class="grid-wide" id="producao"></div>
+    </div>
+  </main>
+
+  <footer>
+    Cada lote produz <span>33 unidades</span> e consome 
+    <span>4 refrigerantes</span> + <span>4 xaropes</span> + 
+    <span>4 balas de goma</span> + <span>1 misturador</span>
+  </footer>
+
+  <script>
+    const inputQtd = document.getElementById('quantidade');
+    const erroEl = document.getElementById('erro');
+    const materiaisEl = document.getElementById('materiais');
+    const producaoEl = document.getElementById('producao');
+    const btnMenos = document.getElementById('btn-menos');
+    const btnMais = document.getElementById('btn-mais');
+
+    const UNIDADES_POR_LOTE = 33;
+    const REFRIGERANTES_POR_LOTE = 4;
+    const XAROPES_POR_LOTE = 4;
+    const BALAS_POR_LOTE = 4;
+    const MISTURADORES_POR_LOTE = 1;
+    const PESO_POR_UNIDADE = 0.2;
+    const CAPACIDADE_MOCHILA = 100;
+    const VALOR_UNITARIO = 80;
+
+    function formatarNumero(n) {
+      return n.toLocaleString('pt-BR');
+    }
+
+    function formatarMoeda(n) {
+      return '$ ' + n.toLocaleString('pt-BR');
+    }
+
+    function calcular(qtd) {
+      const lotes = Math.ceil(qtd / UNIDADES_POR_LOTE);
+      const refrigerantes = lotes * REFRIGERANTES_POR_LOTE;
+      const xaropes = lotes * XAROPES_POR_LOTE;
+      const balas = lotes * BALAS_POR_LOTE;
+      const misturadores = lotes * MISTURADORES_POR_LOTE;
+      const producaoReal = lotes * UNIDADES_POR_LOTE;
+      const pesoTotal = qtd * PESO_POR_UNIDADE;
+      const mochilas = Math.ceil(pesoTotal / CAPACIDADE_MOCHILA);
+      const valorTotal = qtd * VALOR_UNITARIO;
+
+      return { lotes, refrigerantes, xaropes, balas, misturadores, producaoReal, pesoTotal, mochilas, valorTotal };
+    }
+
+    function renderizar(dados, qtd) {
+      materiaisEl.innerHTML = `
+        <div class="card">
+          <span class="label">Refrigerantes</span>
+          <span class="value">${formatarNumero(dados.refrigerantes)}</span>
+          <span class="sub">4 por lote × ${dados.lotes} lotes</span>
+        </div>
+        <div class="card">
+          <span class="label">Xaropes</span>
+          <span class="value">${formatarNumero(dados.xaropes)}</span>
+          <span class="sub">4 por lote × ${dados.lotes} lotes</span>
+        </div>
+        <div class="card">
+          <span class="label">Balas de goma</span>
+          <span class="value">${formatarNumero(dados.balas)}</span>
+          <span class="sub">4 por lote × ${dados.lotes} lotes</span>
+        </div>
+        <div class="card gold">
+          <span class="label">Misturadores</span>
+          <span class="value">${formatarNumero(dados.misturadores)}</span>
+          <span class="sub">1 por lote × ${dados.lotes} lotes</span>
+        </div>
+      `;
+
+      producaoEl.innerHTML = `
+        <div class="card gold">
+          <span class="label">Produção real</span>
+          <span class="value">${formatarNumero(dados.producaoReal)}</span>
+          <span class="sub">${dados.lotes} lotes × 33 un</span>
+        </div>
+        <div class="card">
+          <span class="label">Peso total</span>
+          <span class="value">${formatarNumero(dados.pesoTotal)} kg</span>
+          <span class="sub">${formatarNumero(qtd)} × 0,2 kg</span>
+        </div>
+        <div class="card">
+          <span class="label">Mochilas</span>
+          <span class="value">${formatarNumero(dados.mochilas)}</span>
+          <span class="sub">100 kg cada</span>
+        </div>
+        <div class="card">
+          <span class="label">Valor unitário</span>
+          <span class="value">${formatarMoeda(VALOR_UNITARIO)}</span>
+          <span class="sub">Preço fixo</span>
+        </div>
+        <div class="card highlight">
+          <span class="label">Valor total final</span>
+          <span class="value">${formatarMoeda(dados.valorTotal)}</span>
+          <span class="sub">${formatarNumero(qtd)} × $ 80</span>
+        </div>
+      `;
+    }
+
+    function atualizar() {
+      const valor = inputQtd.value.trim();
+      const qtd = parseInt(valor, 10);
+
+      if (valor === '' || isNaN(qtd) || qtd < 1 || !Number.isInteger(qtd)) {
+        erroEl.textContent = 'Informe um número inteiro positivo.';
+        materiaisEl.innerHTML = '';
+        producaoEl.innerHTML = '';
+        return;
+      }
+
+      erroEl.textContent = '';
+      const dados = calcular(qtd);
+      renderizar(dados, qtd);
+    }
+
+    inputQtd.addEventListener('input', atualizar);
+    inputQtd.addEventListener('change', atualizar);
+
+    btnMenos.addEventListener('click', () => {
+      const atual = parseInt(inputQtd.value, 10) || 0;
+      if (atual > 1) {
+        inputQtd.value = atual - 1;
+        atualizar();
+      }
+    });
+
+    btnMais.addEventListener('click', () => {
+      const atual = parseInt(inputQtd.value, 10) || 0;
+      inputQtd.value = atual + 1;
+      atualizar();
+    });
+
+    // Inicializa
+    atualizar();
+  </script>
+</body>
+</html>
